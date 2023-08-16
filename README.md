@@ -10,8 +10,6 @@ The primary objective of this assessment is to create a simple application that 
 
 To run the application and assess your progress, follow these steps:
 
-<br/>
-
 1. **Clone the Repository:** Clone this repository to your local machine.
 1. **Navigate to Project Directory:** Open a terminal and navigate to the project's root directory.
 1. **Install Dependencies:** Run `yarn install` to install the required dependencies.
