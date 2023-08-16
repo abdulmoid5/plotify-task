@@ -5,6 +5,7 @@
   "scripts": {
     "android": "npx react-native run-android",
     "ios": "npx react-native run-ios",
+    "ios13": "npx react-native run-ios --simulator=\"iPhone 13\"",
     "lint": "eslint .",
     "start": "npx react-native start",
     "start:reset": "npx react-native start --reset-cache",
