@@ -10,8 +10,11 @@ export function HomeScreen(): JSX.Element {
     <View
       style={{
         backgroundColor: theme.colors.lightGray2,
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
       }}>
-      <Text color="accent">asdf</Text>
+      <Text color="accent">Hello World!</Text>
     </View>
   );
 }
