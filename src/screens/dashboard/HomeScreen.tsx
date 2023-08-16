@@ -9,12 +9,14 @@ export function HomeScreen(): JSX.Element {
   return (
     <View
       style={{
-        backgroundColor: theme.colors.lightGray2,
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: theme.colors.white,
       }}>
-      <Text color="accent">Hello World!</Text>
+      <Text color="accent" variant="headline4">
+        Hello World!
+      </Text>
     </View>
   );
 }

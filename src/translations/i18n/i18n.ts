@@ -1,15 +1,10 @@
 import i18n from 'i18n-js';
 import en from '../default/en.json';
-import * as RNLocalize from 'react-native-localize';
 
 i18n.fallbacks = true;
 i18n.locales.no = ['en'];
 
-const locales = RNLocalize.getLocales();
-
-if (Array.isArray(locales)) {
-  i18n.locale = locales[0].languageTag;
-}
+i18n.locale = 'en-US';
 
 i18n.translations = {
   en,
