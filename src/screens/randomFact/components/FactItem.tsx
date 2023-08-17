@@ -16,7 +16,6 @@ type Props = {
 
 export const FactItem: React.FC<Props> = props => {
   const {onPress, data} = props;
-  console.info('FILTERING LOGGER ----- data  ------  ', data);
   const theme = useTheme();
   return (
     <View
@@ -43,7 +42,6 @@ export const FactItem: React.FC<Props> = props => {
           paddingHorizontal: theme.spacing.s,
           paddingVertical: theme.spacing.xxxs,
           marginBottom: theme.spacing.s,
-
         }}>
         <Text color="darkGray" variant="body3">
           {`${data.source}`}
