@@ -1,18 +1,20 @@
-export type HomeDataProps = {
+export type HomeDataProps = Array<{
   id: number;
   title: string;
+  isCompleted: boolean;
   child: Array<HomeDataItemProps>;
-};
+}>;
 
 export type HomeDataItemProps = {
   id: number;
   text: string;
   selected: boolean;
 };
-export const HomeData: Array<HomeDataProps> = [
+export const HomeData: HomeDataProps = [
   {
     id: 1,
-    title: 'Startup Progress',
+    title: 'Foundation',
+    isCompleted: false,
     child: [
       {
         id: 1,
@@ -39,6 +41,7 @@ export const HomeData: Array<HomeDataProps> = [
   {
     id: 2,
     title: 'Discovery',
+    isCompleted: false,
     child: [
       {
         id: 1,
@@ -55,6 +58,7 @@ export const HomeData: Array<HomeDataProps> = [
   {
     id: 3,
     title: 'Delivery',
+    isCompleted: false,
     child: [
       {
         id: 1,

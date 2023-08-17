@@ -1,34 +1,21 @@
-import React, {useEffect} from 'react';
-import {View} from 'react-native';
+import React from 'react';
 import {Checkbox} from '~/components/organisms/Checkbox';
-import {useTheme} from '~/hooks/useTheme';
 
-type Props = {text: string; isChecked: boolean};
+type Props = {
+  text: string;
+  isChecked: boolean;
+  onChange(isChecked?: boolean): void;
+};
 
 export const Item: React.FC<Props> = props => {
-  const {text, isChecked} = props;
-  const theme = useTheme();
-  const [isSelected, setIsSelected] = React.useState(isChecked);
-
-  useEffect(() => {
-    setIsSelected(isChecked);
-  }, [isChecked]);
+  const {text, isChecked, onChange} = props;
 
   return (
-    <View
-      style={{
-        flexDirection: 'row',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        marginBottom: theme.spacing.xxs,
-      }}>
-      <Checkbox
-        onChange={value => {
-          setIsSelected(value);
-        }}
-        isChecked={isSelected}
-        label={text}
-      />
-    </View>
+    <Checkbox
+      onChange={onChange}
+      isChecked={isChecked}
+      label={text}
+      marginVertical="xxs"
+    />
   );
 };

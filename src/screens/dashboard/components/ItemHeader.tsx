@@ -16,6 +16,7 @@ export const ItemHeader: React.FC<Props> = props => {
         alignItems: 'center',
         justifyContent: 'space-between',
         marginBottom: theme.spacing.xxs,
+        minHeight: 60,
       }}>
       <View
         style={{

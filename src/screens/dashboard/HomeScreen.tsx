@@ -4,14 +4,18 @@ import {View} from 'react-native';
 import {Text} from '~/components/atom/Text';
 import {useTheme} from '~/hooks/useTheme';
 import i18n from '~/translations/i18n/i18n';
-import {ItemHeader} from './components/ItemHeader';
-import {HomeData} from './constants/HomeData';
 import {Item} from './components/Item';
+import {ItemHeader} from './components/ItemHeader';
+import {useHomeData} from './hooks/useHomeData';
 
 export function HomeScreen(): JSX.Element {
   const theme = useTheme();
 
-  return (
+  const {homeData: data, updateChildSelection, isLoading} = useHomeData();
+
+  return isLoading ? (
+    <Text>Please wait...</Text>
+  ) : (
     <View
       style={{
         flex: 1,
@@ -27,18 +31,25 @@ export function HomeScreen(): JSX.Element {
           backgroundColor: theme.colors.white,
           paddingBottom: 60,
         }}
-        data={HomeData}
+        data={data}
         renderItem={({item, index}) => (
           <React.Fragment>
             <ItemHeader
               number={index + 1}
               text={item.title}
-              isCompleted={true}
+              isCompleted={item.isCompleted}
             />
 
             {item.child.map((childItem, childIndex) => (
               <Item
                 key={childIndex}
+                onChange={() => {
+                  updateChildSelection(
+                    item.id,
+                    childItem.id,
+                    !childItem.selected,
+                  );
+                }}
                 text={childItem.text}
                 isChecked={childItem.selected}
               />
