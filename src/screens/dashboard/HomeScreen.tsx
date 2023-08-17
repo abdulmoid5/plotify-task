@@ -1,18 +1,38 @@
 import {FlashList} from '@shopify/flash-list';
-import React from 'react';
-import {ActivityIndicator, View} from 'react-native';
+import React, {useEffect} from 'react';
+import {View} from 'react-native';
 import {Text} from '~/components/atom/Text';
+import {Loader} from '~/components/organisms/Loader';
 import {useTheme} from '~/hooks/useTheme';
 import i18n from '~/translations/i18n/i18n';
 import {Item} from './components/Item';
 import {ItemHeader} from './components/ItemHeader';
 import {useHomeData} from './hooks/useHomeData';
-import {Loader} from '~/components/organisms/Loader';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AppNavigatorStackParamsList} from '~/navigation/appNavigator/types';
 
-export function HomeScreen(): JSX.Element {
+type HomeScreenProps = NativeStackScreenProps<
+  AppNavigatorStackParamsList,
+  'HOME_NAV_ROUTE'
+>;
+
+export const HomeScreen: React.FC<HomeScreenProps> = ({
+  navigation,
+}): JSX.Element => {
   const theme = useTheme();
 
-  const {homeData: data, updateChildSelection, isLoading} = useHomeData();
+  const {
+    homeData: data,
+    updateChildSelection,
+    isLoading,
+    isCompleted,
+  } = useHomeData();
+
+  useEffect(() => {
+    if (isCompleted) {
+      navigation.navigate('RANDOM_FACT_ROUTE');
+    }
+  }, [isCompleted]);
 
   return (
     <View
@@ -63,4 +83,4 @@ export function HomeScreen(): JSX.Element {
       )}
     </View>
   );
-}
+};
