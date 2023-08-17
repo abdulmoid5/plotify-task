@@ -29,10 +29,10 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
   } = useHomeData();
 
   useEffect(() => {
-    if (isCompleted) {
+    if (isCompleted && !isLoading) {
       navigation.navigate('RANDOM_FACT_ROUTE');
     }
-  }, [isCompleted]);
+  }, [isCompleted, isLoading]);
 
   return (
     <View

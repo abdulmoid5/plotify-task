@@ -32,24 +32,26 @@ export const FactItem: React.FC<Props> = props => {
         textAlign="center">
         {i18n.t('random_fact_item_header')}
       </Text>
-      <Text textAlign="center" marginBottom="m">{`${data.text}`}</Text>
+      <Text textAlign="center" marginBottom="m">{`${data?.text ?? ''}`}</Text>
 
-      <View
-        style={{
-          borderRadius: 12,
-          borderWidth: 0.7,
-          borderColor: theme.colors.lightGray5,
-          paddingHorizontal: theme.spacing.s,
-          paddingVertical: theme.spacing.xxxs,
-          marginBottom: theme.spacing.s,
-        }}>
-        <Text color="darkGray" variant="body3">
-          {`${data.source}`}
-          <Text variant="body3" color="lightGray4">
-            {` - ${i18n.t('source')}`}
+      {(data?.source ?? '') && (
+        <View
+          style={{
+            borderRadius: 12,
+            borderWidth: 0.7,
+            borderColor: theme.colors.lightGray5,
+            paddingHorizontal: theme.spacing.s,
+            paddingVertical: theme.spacing.xxxs,
+            marginBottom: theme.spacing.s,
+          }}>
+          <Text color="darkGray" variant="body3">
+            {`${data?.source ?? ''}`}
+            <Text variant="body3" color="lightGray4">
+              {` - ${i18n.t('source')}`}
+            </Text>
           </Text>
-        </Text>
-      </View>
+        </View>
+      )}
 
       <Pressable
         style={{
