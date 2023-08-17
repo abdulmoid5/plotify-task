@@ -85,6 +85,7 @@ export const Theme = {
     overlay1: 'rgba(36, 56, 54, 0.95)',
     twitter: '#1DA1F2',
     tweetAction: '#687684',
+    black: '#000000',
   },
   spacing: {
     xxxs: 4,
