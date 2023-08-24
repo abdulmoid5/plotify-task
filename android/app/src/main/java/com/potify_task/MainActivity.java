@@ -20,7 +20,7 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected String getMainComponentName() {
-    return "potify_task";
+    return "Plotify Task";
   }
 
   /**
