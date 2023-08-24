@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface PlotifyTaskTests : XCTestCase
+@interface potify_taskTests : XCTestCase
 
 @end
 
-@implementation PlotifyTaskTests
+@implementation potify_taskTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {
