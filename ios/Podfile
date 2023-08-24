@@ -12,7 +12,7 @@ if linkage != nil
   use_frameworks! :linkage => linkage.to_sym
 end
 
-target 'PlotifyTask' do
+target 'potify_task' do
   config = use_native_modules!
 
   # Flags change depending on the env values.
@@ -34,7 +34,7 @@ target 'PlotifyTask' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'PlotifyTaskTests' do
+  target 'potify_taskTests' do
     inherit! :complete
     # Pods for testing
   end
