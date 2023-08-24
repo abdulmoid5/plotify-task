@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "potify_task.app"
-               BlueprintName = "potify_task"
-               ReferencedContainer = "container:potify_task.xcodeproj">
+               BuildableName = "PlotifyTask.app"
+               BlueprintName = "PlotifyTask"
+               ReferencedContainer = "container:PlotifyTask.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "potify_taskTests.xctest"
-               BlueprintName = "potify_taskTests"
-               ReferencedContainer = "container:potify_task.xcodeproj">
+               BuildableName = "PlotifyTaskTests.xctest"
+               BlueprintName = "PlotifyTaskTests"
+               ReferencedContainer = "container:PlotifyTask.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "potify_task.app"
-            BlueprintName = "potify_task"
-            ReferencedContainer = "container:potify_task.xcodeproj">
+            BuildableName = "PlotifyTask.app"
+            BlueprintName = "PlotifyTask"
+            ReferencedContainer = "container:PlotifyTask.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "potify_task.app"
-            BlueprintName = "potify_task"
-            ReferencedContainer = "container:potify_task.xcodeproj">
+            BuildableName = "PlotifyTask.app"
+            BlueprintName = "PlotifyTask"
+            ReferencedContainer = "container:PlotifyTask.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
