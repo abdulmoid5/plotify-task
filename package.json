@@ -1,5 +1,5 @@
 {
-  "name": "potify_task",
+  "name": "plotifytask",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -12,8 +12,9 @@
     "test": "jest",
     "prepare": "yarn install-pods && yarn jetify",
     "install-pods": "yarn pod-install --non-interactive --quiet",
-    "xcode": "cd ios && open potify_task.xcworkspace && cd ..",
-    "postinstall": "patch-package"
+    "postinstall": "patch-package",
+    "xcode": "cd ios && open plotifytask.xcworkspace && cd .."
+
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.2",
