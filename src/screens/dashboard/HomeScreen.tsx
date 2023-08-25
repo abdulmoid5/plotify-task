@@ -1,5 +1,5 @@
 import {FlashList} from '@shopify/flash-list';
-import React, {useEffect, useRef} from 'react';
+import React, {useEffect, useLayoutEffect, useRef} from 'react';
 import {InteractionManager, View} from 'react-native';
 import {Text} from '~/components/atom/Text';
 import {Loader} from '~/components/organisms/Loader';
@@ -10,6 +10,7 @@ import {ItemHeader} from './components/ItemHeader';
 import {useHomeData} from './hooks/useHomeData';
 import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {AppNavigatorStackParamsList} from '~/navigation/appNavigator/types';
+import {useFocusEffect} from '@react-navigation/native';
 
 type HomeScreenProps = NativeStackScreenProps<
   AppNavigatorStackParamsList,
@@ -17,7 +18,7 @@ type HomeScreenProps = NativeStackScreenProps<
 >;
 
 export const HomeScreen: React.FC<HomeScreenProps> = (props): JSX.Element => {
-  const {navigation} = props;
+  const {navigation, route} = props;
 
   const theme = useTheme();
 
@@ -26,12 +27,21 @@ export const HomeScreen: React.FC<HomeScreenProps> = (props): JSX.Element => {
     updateChildSelection,
     isLoading,
     isCompleted,
+    resetHomeData,
   } = useHomeData();
 
+  useFocusEffect(() => {});
   useEffect(() => {
+    if (route.params.isFromRandomFact) {
+      (async () => {
+        await resetHomeData();
+        navigation.setParams({isFromRandomFact: false});
+      })();
+      return;
+    }
     if (isCompleted && !isLoading) {
       InteractionManager.runAfterInteractions(() => {
-        navigation.navigate('RANDOM_FACT_ROUTE');
+        navigation.replace('RANDOM_FACT_ROUTE');
       });
     }
   }, [isCompleted, isLoading]);

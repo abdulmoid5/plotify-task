@@ -13,3 +13,6 @@ export const getCacheData = async (): Promise<HomeDataProps> => {
   }
   return HomeData;
 };
+export const clearCacheData = async () => {
+  await AsyncStorage.removeItem(CacheDataKey);
+};

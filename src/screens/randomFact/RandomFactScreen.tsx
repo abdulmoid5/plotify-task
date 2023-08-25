@@ -28,7 +28,7 @@ export const RandomFactScreen: React.FC<RandomFactScreenProps> = (
           backgroundColor={theme.colors.white}
           onBackClick={() => {
             InteractionManager.runAfterInteractions(() => {
-              navigation.navigate('HOME_NAV_ROUTE');
+              navigation.navigate('HOME_NAV_ROUTE', {isFromRandomFact: true});
             });
           }}
         />

@@ -24,7 +24,7 @@ export const OnboardScreen: React.FC<OnboardScreenProps> = (
     if (isCompleted) {
       navigation.navigate('RANDOM_FACT_ROUTE');
     } else {
-      navigation.navigate('HOME_NAV_ROUTE');
+      navigation.navigate('HOME_NAV_ROUTE', {isFromRandomFact: false});
     }
   }, [isCompleted, isLoading]);
 

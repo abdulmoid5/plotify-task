@@ -1,6 +1,6 @@
 import {useEffect, useRef, useState} from 'react';
-import {HomeDataProps} from '../constants/HomeData';
-import {cacheData, getCacheData} from '../utils/CacheData';
+import {HomeData, HomeDataProps} from '../constants/HomeData';
+import {cacheData, clearCacheData, getCacheData} from '../utils/CacheData';
 
 export const useHomeData = () => {
   const [loading, setLoading] = useState(true);
@@ -56,10 +56,16 @@ export const useHomeData = () => {
     cacheData(homeData);
   }, [homeData]);
 
+  const resetHomeData = async () => {
+    await clearCacheData();
+    setHomeData(HomeData);
+  };
+
   return {
     homeData,
     updateChildSelection,
     isLoading: loading,
     isCompleted,
+    resetHomeData,
   };
 };
