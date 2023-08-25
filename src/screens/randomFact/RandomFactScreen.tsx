@@ -1,14 +1,41 @@
-import React, {useEffect} from 'react';
-import {Pressable, View} from 'react-native';
-import Axios from '~/api/axios';
+import React, {useLayoutEffect} from 'react';
+import {InteractionManager, Pressable, View} from 'react-native';
 import {Text} from '~/components/atom/Text';
 import {Loader} from '~/components/organisms/Loader';
 import {useGetApi} from '~/hooks/api';
 import {useTheme} from '~/hooks/useTheme';
 import i18n from '~/translations/i18n';
 import {FactItem} from './components/FactItem';
+import {NativeStackScreenProps} from '@react-navigation/native-stack';
+import {AppNavigatorStackParamsList} from '~/navigation/appNavigator/types';
+import {useHomeData} from '../dashboard/hooks/useHomeData';
+import {HeaderNavBack} from '~/navigation/headerNavBackButton';
 
-export const RandomFactScreen = (): JSX.Element => {
+type RandomFactScreenProps = NativeStackScreenProps<
+  AppNavigatorStackParamsList,
+  'RANDOM_FACT_ROUTE'
+>;
+export const RandomFactScreen: React.FC<RandomFactScreenProps> = (
+  props,
+): JSX.Element => {
+  const {navigation} = props;
+
+  useLayoutEffect(() => {
+    navigation.setOptions({
+      headerShown: true,
+      header: () => (
+        <HeaderNavBack
+          backgroundColor={theme.colors.white}
+          onBackClick={() => {
+            InteractionManager.runAfterInteractions(() => {
+              navigation.navigate('HOME_NAV_ROUTE');
+            });
+          }}
+        />
+      ),
+    });
+  }, [navigation]);
+
   const theme = useTheme();
   const {data, loading, error, refetch} = useGetApi('random.json');
 

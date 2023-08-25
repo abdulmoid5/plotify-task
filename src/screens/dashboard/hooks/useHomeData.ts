@@ -56,5 +56,10 @@ export const useHomeData = () => {
     cacheData(homeData);
   }, [homeData]);
 
-  return {homeData, updateChildSelection, isLoading: loading, isCompleted};
+  return {
+    homeData,
+    updateChildSelection,
+    isLoading: loading,
+    isCompleted,
+  };
 };
