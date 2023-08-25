@@ -7,7 +7,6 @@ import VectorIcon from '~/components/atom/VectorIcon';
 import i18n from '~/translations/i18n/i18n';
 
 type HeaderNavBackProps = {
-  navigation: any;
   title?: string;
   style?: any;
   backgroundColor?: string;
@@ -49,20 +48,6 @@ export const HeaderNavBack: FC<HeaderNavBackProps> = props => {
     return undefined;
   };
 
-  const renderBackButton = () => {
-    if (props.onBackClick != null) {
-      props.onBackClick();
-    } else {
-      // TODO better check is valid route, but it's controllable
-      props.backRoute === undefined || props.backRoute === ''
-        ? props.navigation.goBack()
-        : props.navigation.navigate({
-            name: props.backRoute,
-            merge: true,
-          });
-    }
-  };
-
   return (
     <View
       style={{
@@ -72,7 +57,7 @@ export const HeaderNavBack: FC<HeaderNavBackProps> = props => {
       {props.empty ? null : (
         <Header
           title={props.title}
-          onBack={props.hideBack ? undefined : renderBackButton}
+          onBack={props.hideBack ? undefined : props.onBackClick}
           suffix={renderSuffixButton()}
           backButtonAccessibility={{
             role: props.hideBack ? undefined : 'button',

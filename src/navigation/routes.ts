@@ -1,2 +1,3 @@
+export const ONBOARD_ROUTE = 'ONBOARD_ROUTE';
 export const HOME_NAV_ROUTE = 'HOME_NAV_ROUTE';
 export const RANDOM_FACT_ROUTE = 'RANDOM_FACT_ROUTE';

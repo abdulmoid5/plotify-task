@@ -1,6 +1,6 @@
 import {FlashList} from '@shopify/flash-list';
-import React, {useEffect} from 'react';
-import {View} from 'react-native';
+import React, {useEffect, useRef} from 'react';
+import {InteractionManager, View} from 'react-native';
 import {Text} from '~/components/atom/Text';
 import {Loader} from '~/components/organisms/Loader';
 import {useTheme} from '~/hooks/useTheme';
@@ -16,9 +16,9 @@ type HomeScreenProps = NativeStackScreenProps<
   'HOME_NAV_ROUTE'
 >;
 
-export const HomeScreen: React.FC<HomeScreenProps> = ({
-  navigation,
-}): JSX.Element => {
+export const HomeScreen: React.FC<HomeScreenProps> = (props): JSX.Element => {
+  const {navigation} = props;
+
   const theme = useTheme();
 
   const {
@@ -30,7 +30,9 @@ export const HomeScreen: React.FC<HomeScreenProps> = ({
 
   useEffect(() => {
     if (isCompleted && !isLoading) {
-      navigation.navigate('RANDOM_FACT_ROUTE');
+      InteractionManager.runAfterInteractions(() => {
+        navigation.navigate('RANDOM_FACT_ROUTE');
+      });
     }
   }, [isCompleted, isLoading]);
 

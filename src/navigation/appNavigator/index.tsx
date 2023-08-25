@@ -1,33 +1,34 @@
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import type {AppNavigatorStackParamsList} from './types';
-import {HOME_NAV_ROUTE, RANDOM_FACT_ROUTE} from '../routes';
-import {HomeScreen} from '~/screens/dashboard/HomeScreen';
-import {HeaderNavBack} from '../headerNavBackButton';
 import {useTheme} from '~/hooks/useTheme';
+import {HomeScreen} from '~/screens/dashboard/HomeScreen';
+import {OnboardScreen} from '~/screens/onboard/OnboardScreen';
 import {RandomFactScreen} from '~/screens/randomFact/RandomFactScreen';
+import {HeaderNavBack} from '../headerNavBackButton';
+import {HOME_NAV_ROUTE, ONBOARD_ROUTE, RANDOM_FACT_ROUTE} from '../routes';
+import type {AppNavigatorStackParamsList} from './types';
 
 type AppNavigatorStackParamsListTodo = AppNavigatorStackParamsList & any;
 const AppNavigatorStack =
-  createNativeStackNavigator<AppNavigatorStackParamsListTodo>();
+  createStackNavigator<AppNavigatorStackParamsListTodo>();
 
 export const AppNavigator: React.FC = () => {
   const theme = useTheme();
 
   return (
-    <AppNavigatorStack.Navigator initialRouteName={HOME_NAV_ROUTE}>
+    <AppNavigatorStack.Navigator>
       <AppNavigatorStack.Group
-        screenOptions={({navigation}) => ({
+        screenOptions={() => ({
           gestureEnabled: false,
           headerShown: true,
           header: () => (
-            <HeaderNavBack
-              navigation={navigation}
-              backgroundColor={theme.colors.white}
-              empty
-            />
+            <HeaderNavBack backgroundColor={theme.colors.white} empty />
           ),
         })}>
+        <AppNavigatorStack.Screen
+          name={ONBOARD_ROUTE}
+          component={OnboardScreen}
+        />
         <AppNavigatorStack.Screen
           name={HOME_NAV_ROUTE}
           component={HomeScreen}

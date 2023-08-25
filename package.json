@@ -13,13 +13,14 @@
     "prepare": "yarn install-pods && yarn jetify",
     "install-pods": "yarn pod-install --non-interactive --quiet",
     "postinstall": "patch-package",
-    "xcode": "cd ios && open plotifytask.xcworkspace && cd .."
+    "xcode": "cd ios && open potify_task.xcworkspace && cd .."
   },
   "dependencies": {
     "@react-native-async-storage/async-storage": "^1.19.2",
     "@react-native-masked-view/masked-view": "^0.2.9",
     "@react-navigation/native": "^6.1.7",
     "@react-navigation/native-stack": "^6.9.13",
+    "@react-navigation/stack": "^6.3.17",
     "@shopify/flash-list": "^1.5.0",
     "@types/i18n-js": "^3.8.4",
     "axios": "^1.4.0",
